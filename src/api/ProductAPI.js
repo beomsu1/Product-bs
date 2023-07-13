@@ -6,9 +6,9 @@ export const postProduct = async(FormData) => {
         headers: {
             "Content-Type": "multipart/form-data",
         }
-}
+    }
 
-    const res = await axios.post(`http://localhost:8080/api/products/`, FormData, header)
+    const res = await axios.post(`http://localhost:8080/api/products/`, FormData , header)
 
     return res.data
 

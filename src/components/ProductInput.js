@@ -3,10 +3,9 @@ import { postProduct } from "../api/ProductAPI";
 
 // 껍데기
 const initState = {
-    title : '',
-    content : '',
-    writer : '',
-    images : []
+    pname : '',
+    pdesc : '',
+    price : 0,
 }
 
 const ProductInput = () => {
@@ -29,16 +28,16 @@ const ProductInput = () => {
         const formData = new FormData()
 
         // 하나씩 담아줘야함
-        formData.append("title",product.title)
-        formData.append("content",product.content)
-        formData.append("writer",product.writer)
+        formData.append("pname",product.title)
+        formData.append("pdesc",product.content)
+        formData.append("price",product.writer)
 
         console.dir(fileRef.current)
 
         const arr = fileRef.current.files
 
         for (let file of arr) {
-            formData.append("images", file)
+            formData.append("files", file)
         }
 
         postProduct(formData)
@@ -56,13 +55,13 @@ const ProductInput = () => {
         <div>
             <h1>Product Input</h1>
             <div>
-                <input type="text" name="title" value={product.title} onChange={handleChange}></input>
+                <input type="text" name="pname" value={product.pname} onChange={handleChange}></input>
             </div>
             <div>
-                <input type="text" name="content" value={product.content} onChange={handleChange}></input>
+                <input type="text" name="pdesc" value={product.pdesc} onChange={handleChange}></input>
             </div>
             <div>
-                <input type="text" name="writer" value={product.writer} onChange={handleChange}></input>
+                <input type="text" name="price" value={product.price} onChange={handleChange}></input>
             </div>
             <div>
                 <input type="file" multiple name="images" onChange={handleChange} ref={fileRef}></input>

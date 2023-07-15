@@ -28,9 +28,9 @@ const ProductInput = () => {
         const formData = new FormData()
 
         // 하나씩 담아줘야함
-        formData.append("pname",product.title)
-        formData.append("pdesc",product.content)
-        formData.append("price",product.writer)
+        formData.append("pname",product.pname)
+        formData.append("pdesc",product.pdesc)
+        formData.append("price",product.price)
 
         console.dir(fileRef.current)
 
